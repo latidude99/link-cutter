@@ -4,6 +4,8 @@
 
 _IGNORE/
 
+!release/**
+
 #application.properties
 
 ##########################
