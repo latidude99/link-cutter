@@ -104,6 +104,7 @@ public class H2Controller {
                 model.addAttribute("linkDTOH2", link);
             }
         } else{
+            model.addAttribute("linkDTOH2ToDelete", linkDTOH2ToDelete);
             model.addAttribute("empty","LINK NOT RECOGNISED");
             model.addAttribute("unrecognised",
                     "All links created with this service should start with " + URL_BASE);
