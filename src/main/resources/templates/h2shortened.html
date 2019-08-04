@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
+<head>
+    <title>-Links-</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <style>
+        .alert {
+            margin-bottom: 1px;
+            height: 40px;
+            line-height: 40px;
+            padding: 0px 15px;
+        }
+        html, body {
+            height: 100%;
+        }
+        .container, .row.justify-content-center.align-items-center {
+            height: 100%;
+            min-height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+
+        <div class="col-sm-12 border border-default mb-5">
+            <div>
+                <h5 class="mt-3" Style="padding: 0px 0px 20px 0px;">Link Shortening Service</h5>
+
+                <div class="alert alert-primary mb-2">
+                    <strong>Your short link:</strong>
+                    <span th:text="${linkDTOH2.shortened}"> Shortened link</span>
+                </div>
+                <div class="alert alert-primary mb-2">
+                    <strong>Expires in: </strong>
+                    <span th:text="${linkDTOH2.expiresIn}"> 5 </span>
+                </div>
+                <div class="alert alert-warning mb-2">
+                    <strong>Delete pin code: </strong>
+                    <span th:text="${linkDTOH2.pin}"> 5 </span>
+                </div>
+                <div class="mt-3">
+                    <a th:href="@{/}">
+                        <button class="btn btn-primary mb-4" style="width:100%">Back to
+                            Home Page
+                        </button>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

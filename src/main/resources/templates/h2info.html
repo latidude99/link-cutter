@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
+<head>
+    <title >-Links-</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <style>
+        .alert {
+            margin-bottom: 1px;
+            height: 40px;
+            line-height:40px;
+            padding:0px 15px;
+        }
+        html, body {
+            height: 100%;
+        }
+        .container, .row.justify-content-center.align-items-center {
+            height: 100%;
+            min-height: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="container">
+
+        <div class="col-md-12 border border-default mt-3">
+
+                <h5 class="mt-3">Link Info</h5>
+
+                <div th:if="${empty == null}">
+                    <div class="alert alert-primary mb-2">
+                        <strong>Original URL:</strong>
+                        <span th:text = "${linkDTOH2.original}"> Original URL</span>
+                    </div>
+                    <div class="alert alert-primary mb-2">
+                        <strong>Your short link:</strong>
+                        <span th:text = "${linkDTOH2.shortened}"> Shortened link</span>
+                    </div>
+                    <div class="alert alert-primary mb-2">
+                        <strong>Created: </strong>
+                        <span th:text="${#temporals.format(linkDTOH2.created, 'dd.MM.yyyy hh:mm')}"> 2019-07-31 </span>
+                    </div>
+                    <div class="alert alert-primary mb-2">
+                        <strong>Expires in: </strong>
+                        <span th:text = "${linkDTOH2.expiresIn}"> 4 days 23 hours 59 mins </span>
+                    </div>
+                    <div class="alert alert-primary mb-2">
+                        <strong>Visited: </strong>
+                        <span th:if="${linkDTOH2.visited > 0}" th:text = "${linkDTOH2.visited}"> 5 </span>
+                        <span th:if="${linkDTOH2.visited < 1}"> not yet visited</span>
+                        <span th:if="${linkDTOH2.visited == 1}"> time</span>
+                        <span th:if="${linkDTOH2.visited > 1}"> times</span>
+                    </div>
+                    <div class="alert alert-warning mb-2">
+                        <strong>Status: </strong>
+                        <span th:if="${!linkDTOH2.expired} and ${!linkDTOH2.deleted}"> ACTIVE </span>
+                        <span th:if="${linkDTOH2.expired}"> EXPIRED </span>
+                        <span th:if="${linkDTOH2.deleted}"> DELETED </span>
+                    </div>
+
+                </div>
+
+
+                <div th:if="${empty != null}">
+                    <div class="alert alert-warning mb-2">
+                        <strong th:text = "${empty}"> NOT FOUND </strong>
+                        <span th:if="${unrecognised != null}" th:text = "${unrecognised}"> unrecognised</span>
+                    </div>
+                </div>
+
+                <div  class="mt-3">
+                    <a th:href="@{/}"><button class="btn btn-primary mb-4" style="width:100%">Back to
+                        Home Page</button></a>
+                </div>
+
+
+
+            <div>
+                <h5 class="mt-3" >Delete link</h5>
+
+
+                <form action="#" th:action="@{/delete}" method="post" th:object="${linkDTOH2ToDelete}">
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Enter your link:</span>
+                        </div>
+                        <input type="text" class="form-control" th:field="*{shortened}" placeholder="url"/>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Enter pin code:</span>
+                        </div>
+                        <input type="text" class="form-control" th:field="*{pin}" placeholder="pin code"/>
+                    </div>
+
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-danger mb-4" style="width:100%" >
+                            Delete Link
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

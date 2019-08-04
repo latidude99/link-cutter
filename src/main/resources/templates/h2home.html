@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
+<head>
+    <title >-Links-</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <style>
+        .alert {
+            margin-bottom: 1px;
+            height: 40px;
+            line-height:40px;
+            padding:0px 15px;
+        }
+        html, body {
+            height: 100%;
+        }
+        .container, .row.justify-content-center.align-items-center {
+            height: 100%;
+            min-height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-sm-12 border border-default  mb-5">
+            <div>
+                <h5 class="mt-3">Link Shortening Service</h5>
+
+                <form action="#" th:action="@{/short}" method="post" th:object="${linkDTOH2}">
+                    <p th:if="${!#fields.hasErrors('original')}" style="visibility: hidden">.</p>
+                    <p th:if="${#fields.hasErrors('original')}" th:errors="*{original}" style="color:red">URL Error</p>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Enter your link:</span>
+                        </div>
+                        <input type="text" class="form-control" th:field="*{original}" placeholder="url"/>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Enter number of days you want the link to be valid:</span>
+                        </div>
+                        <input type="text" class="form-control" th:field="*{expiryDays}" placeholder="days"/>
+                    </div>
+
+                    <div class="mt-3 mb-4">
+                        <button type="submit" class="btn btn-primary mb-4" style="width:100%" >Generate
+                            Short Link
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+            <div>
+                <h5>Link Info</h5>
+
+
+                <form action="#" th:action="@{/info}" method="post" th:object="${linkDTOH2}">
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Enter your link:</span>
+                        </div>
+                        <input type="text" class="form-control" th:field="*{shortened}" placeholder="url"/>
+                    </div>
+
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary mb-4" style="width:100%" >
+                            Get Link Info
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
