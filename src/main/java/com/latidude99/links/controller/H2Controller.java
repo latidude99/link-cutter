@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
 import java.net.URI;
@@ -24,7 +25,8 @@ import java.util.List;
 public class H2Controller {
     private static Logger log = LoggerFactory.getLogger(H2Controller.class);
     public static final String URL_BASE = "http://localhost:8080/";
-    private static final String URL_PREFIX = "http://";
+    private static final String HTTP_PREFIX = "http";
+    private static final String FTP_PREFIX = "ftp";
     private static final String ERROR_PAGE = "http://localhost:8080/error";
     private static final String ERROR_MESSAGE = "LINK NOT FOUND";
     private static final String INFO_PAGE = "http://localhost:8080/info/";
@@ -58,7 +60,8 @@ public class H2Controller {
         }
         return "h2home";
     }
-
+/*
+    // another option to redirect
     @GetMapping("/{id}")
     public ResponseEntity<Void> redirectToOriginal(@PathVariable String id) {
         LinkDTOH2 link = linkServiceH2.getOriginalLink(id);
@@ -77,6 +80,22 @@ public class H2Controller {
             return ResponseEntity.status(HttpStatus.FOUND)
                     .location(URI.create(original))
                     .build();
+        }
+    }
+*/
+
+    @GetMapping("/{id}")
+    public RedirectView redirectToOriginal(@PathVariable String id) {
+        LinkDTOH2 link = linkServiceH2.getOriginalLink(id);
+        String original = link.getOriginal();
+        if (original.equals("")) {
+            return new RedirectView(ERROR_PAGE);
+        } else if(link.isDeleted() || link.isExpired()) {
+            return new RedirectView(INFO_PAGE + id.substring(id.lastIndexOf("/") + 1));
+        } else{
+            if(!original.contains(HTTP_PREFIX) && !original.contains(FTP_PREFIX))
+                original = HTTP_PREFIX + ":://" + original;
+            return new RedirectView(original);
         }
     }
 
