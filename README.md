@@ -8,7 +8,7 @@
 Link shortening service  
   
 # General Info
-
+A quick Spring Boot exercise.
 Creates a short link that redirect to the original URL address. Allows to specify number of days the link will remain valid. Also, gives an option to delete the link with a pin code (generated alongside the link).   
 
 Info page displays:
