@@ -18,7 +18,7 @@ Info page displays:
 - status of the link: ACTIVE/EXPIRED/DELETED
 - time when the link expired/ was deleted
 
-A cleanup job removing expired links is scheduled to take place every minute (can be changed in `application.properties` modyfying the `cron.expression` property)
+A cleanup job removing expired links is scheduled to take place every minute (can be changed in `application.properties` modifying the `cron.expression` property)
 
 ### side note
 The app uses an in-memory H2 database but it can be easily switched to any SQL DB by changing connection and driver properties in the `application.properties` file.
