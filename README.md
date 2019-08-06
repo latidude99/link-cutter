@@ -36,7 +36,7 @@ There is also a very basic version of the service using a HashMap instead of a d
   <img src="images/short.JPG" width=100%></p>
   <br>
 <p align="center">
-	<img src="images/info.JPG" width=100%> </p>
+	<img src="images/error.JPG" width=100%> </p>
   <br>
 <p align="center">
 	<img src="images/expired.JPG" width=100%></p>
