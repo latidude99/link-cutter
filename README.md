@@ -9,7 +9,7 @@ Link shortening service
   
 # General Info
 
-Creates a short link that redirect to the original URL address. Allows to specify number of days the link will remain valid. Also, gives an option to delete the link with a pin code generated at the same time as the link was.   
+Creates a short link that redirect to the original URL address. Allows to specify number of days the link will remain valid. Also, gives an option to delete the link with a pin code (generated alongside the link).   
 
 Info page displays:
 - the original URL address
@@ -18,13 +18,13 @@ Info page displays:
 - status of the link: ACTIVE/EXPIRED/DELETED
 - time when the link expired/ was deleted
 
-A cleanup job removing expired links is scheduled to take place every hour (can be changed in `application.properties` modyfying `cron.expression` property)
+A cleanup job removing expired links is scheduled to take place every hour (can be changed in `application.properties` modyfying the `cron.expression` property)
 
 ### side note
-The app uses an in-memory H2 database but can be easily switched to any SQL DB changing connection and driver properties in `application.properties` file.
-There is also a very basic version of the service using a HashMap instead of a database, remainder of the first mock-up 
-(`RandomIdentifierGenerator`, `LinkDTO`, `LinkService`, `LinkRepository`, `InMemoryMapLinkRepo.java`, `MapController`,
-`HomeController` and `Link` are shared with H2 version)
+The app uses an in-memory H2 database but it can be easily switched to any SQL DB by changing connection and driver properties in the `application.properties` file.
+There is also a very basic version of the service using a HashMap instead of a database, remainder of the first mock-up:
+`RandomIdentifierGenerator`, `LinkDTO`, `LinkService`, `LinkRepository`, `InMemoryMapLinkRepo.java`, `MapController`. Classes
+`HomeController` and `Link` are shared with the H2 version)
 	
 
 # Screenshots
