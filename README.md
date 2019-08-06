@@ -9,33 +9,32 @@ Link shortening service
   
 # General Info
 
-Creates short link that redirect to the original URL address. Allows to specify validity of the link being created after which
-it expires. Also, allows to delete the link with a pin code generated at the same time as the link.   
+Creates a short link that redirect to the original URL address. Allows to specify number of days the link will remain valid. Also, gives an option to delete the link with a pin code generated at the same time as the link was.   
 
 Info page displays:
 - the original URL address
 - the short link
 - number of times the link was used
-- status of the link: active/expired/de;eted
+- status of the link: ACTIVE/EXPIRED/DELETED
 - time when the link expired/ was deleted
 
 
 # Screenshots
 
 <p align="center">
-  <img src="images/config.JPG" width=100%></p>
+  <img src="images/home.JPG" width=100%></p>
   <br>
 <p align="center">
-  <img src="images/app_processing.JPG" width=100%></p>
+  <img src="images/short.JPG" width=100%></p>
   <br>
 <p align="center">
-	<img src="images/app_finished.JPG" width=100%> </p>
+	<img src="images/info.JPG" width=100%> </p>
   <br>
 <p align="center">
-	<img src="images/app_finished2.JPG" width=100%></p>
+	<img src="images/expired.JPG" width=100%></p>
    <br>
  <p align="center">
-	<img src="images/app_log.JPG" width=100%></p>
+	<img src="images/deleted.JPG" width=100%></p>
 </p>
 
 # Status
