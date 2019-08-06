@@ -56,7 +56,6 @@ Development
 - Thymeleaf 3.0.11
 - IntelliJ IDEA
 
-**Plugins and libraries**
 
 
 # License
