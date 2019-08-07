@@ -5,7 +5,7 @@
 [![GitHub issues](https://img.shields.io/badge/issues-open%200-greenred.svg)](https://GitHub.com/latidude99/enquiries/issues/)
 [![](https://img.shields.io/badge/%20$%20-buy%20me%20a%20coffe-yellow.svg)](https://www.buymeacoffee.com/zWn1I6bVf)
 
-Link shortening service. Live demo here:  http://links.latidude99.com
+Link shortening service. Live demo here:[http://links.latidude99.com](http://links.latidude99.com)
   
 # General Info
 A quick Spring Boot exercise.  
