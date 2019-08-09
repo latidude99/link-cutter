@@ -37,8 +37,8 @@ public class MapController {
         }
         return "home";
     }
-/*
-    @GetMapping("/{shortened}")
+
+    @GetMapping("/simple/{shortened}")
     public ResponseEntity<Void> redirectToOriginal(@PathVariable String shortened) {
         System.out.println("Controller: " + shortened);
         String original = linkService.getOriginalLink(shortened);
@@ -55,7 +55,7 @@ public class MapController {
                     .build();
         }
     }
-    */
+    
 
     /*@GetMapping("/error")
     public String error(Model model){

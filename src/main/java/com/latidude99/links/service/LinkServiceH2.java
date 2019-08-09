@@ -1,5 +1,6 @@
 package com.latidude99.links.service;
 
+import com.latidude99.links.AppProperties;
 import com.latidude99.links.dto.LinkDTOH2;
 import com.latidude99.links.model.Link;
 import com.latidude99.links.repository.H2LinkRepository;
@@ -8,14 +9,13 @@ import com.latidude99.links.util.RandomIdentifierGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Service
 public class LinkServiceH2 {
-    public static final String URL_BASE = "http://localhost:8080/";
+//    public static final String URL_BASE = "http://localhost:8080/";
     public static final long DEFAULT_EXPIRY_DAYS = 5L;
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy hh:mm");
 
@@ -24,6 +24,9 @@ public class LinkServiceH2 {
 
     @Autowired
     RandomIdentifierGenerator generator;
+
+    @Autowired
+    AppProperties appProperties;
 
     public LinkDTOH2 createAndSaveShortLink(LinkDTOH2 formLink) {
         Link link = new Link();
@@ -39,7 +42,7 @@ public class LinkServiceH2 {
         Optional<Link> linkOptional = h2LinkRepository.findByPin(link.getPin());
         String shortLink = linkOptional.get().getId().toString();
         LinkDTOH2 linkDTOH2 = new LinkDTOH2();
-        linkDTOH2.setShortened(URL_BASE + shortLink);
+        linkDTOH2.setShortened(appProperties.getUrlBase() + shortLink);
         linkDTOH2.setPin(link.getPin());
         linkDTOH2.setExpiresIn(LinkUtils.timeToExpire(link));
         return linkDTOH2;
@@ -82,7 +85,7 @@ public class LinkServiceH2 {
     private LinkDTOH2 convertLinkToLinkDTOH2(Link link) {
         LinkDTOH2 linkDTOH2 = new LinkDTOH2();
         linkDTOH2.setOriginal(link.getLink());
-        linkDTOH2.setShortened(URL_BASE + link.getId());
+        linkDTOH2.setShortened(appProperties.getUrlBase() + link.getId());
         linkDTOH2.setCreated(link.getCreated());
         linkDTOH2.setVisited(link.getVisited());
         if (!link.isDeleted())

@@ -3,8 +3,10 @@ package com.latidude99.links;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-@EnableAutoConfiguration
+//@EnableConfigurationProperties(AppProperties.class)
+//@EnableAutoConfiguration
 @SpringBootApplication
 public class LinksApplication {
 
