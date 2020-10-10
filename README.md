@@ -23,6 +23,8 @@ A cleanup job removing expired links is scheduled to take place every minute (ca
 ### side note
 The app uses an in-memory H2 database but it can be easily switched to any SQL DB by changing connection and driver properties in the `application.properties` file.
 There is also a very basic version of the service using a HashMap instead of a database, remainder of the first mock-up, includes classes: `RandomIdentifierGenerator`, `LinkDTO`, `LinkService`, `LinkRepository`, `InMemoryMapLinkRepo` and `MapController`. Classes `HomeController` and `Link` are shared with the H2 version)
+
+Live demo version available at  [http://links.latidude99.com](http://links.latidude99.com) uses MySQL 5.7 database. 
 	
 
 # Screenshots
