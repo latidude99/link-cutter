@@ -53,6 +53,7 @@ Development
 - Java JDK 8
 - Maven 3.60
 - H2 1.4.193
+- MySQL 5.6
 - Thymeleaf 3.0.11
 - IntelliJ IDEA
 
